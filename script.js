@@ -38,7 +38,7 @@ async function searchImages(){
     imageWrapper.appendChild(image)
     imageWrapper.appendChild(imageLink)
     searchResult.appendChild(imageWrapper)
-   })
+   });
    page++;
    if (page > 1) {
     showMore.style.display = "block"
@@ -52,12 +52,16 @@ async function searchImages(){
     page = 1;
     searchImages();
     photo.style.display = "none"
-    console.log(photo)
+    if (inputData) {
+      searchResult.innerHTML = inputData
+    }
+
     
   })
 
 
 showMore.addEventListener('click', function () {
+  
   
   searchImages()
 });
